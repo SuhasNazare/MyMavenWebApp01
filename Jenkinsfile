@@ -28,8 +28,8 @@ pipeline {
        
         stage('Run Application') {
             steps {
-                // Change from 'java -jar ...' to this:
-                sh 'mvn jetty:run'
+                // -Djetty.http.port=8082 tells Jetty to stay out of Jenkins' way
+                sh 'mvn jetty:run -Djetty.http.port=8082'
             }
         }
 
