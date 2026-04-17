@@ -2,8 +2,7 @@ pipeline {
     agent any  // Use any available agent
 
     tools {
-        gradle 'Gradle'  // Ensure this matches the name configured in Jenkins
-        jdk 'JDK'
+        maven 'Maven'  // Ensure this matches the name configured in Jenkins
     }
     stages {
         stage('Checkout') {
@@ -14,7 +13,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn build'  // Run Gradle build
+                sh 'mvn clean package'  // Run Maven build
             }
         }
 
@@ -30,7 +29,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                sh 'mvn run'
+                sh 'java -jar target/MymavenWebApp01.war'
             }
         }
 

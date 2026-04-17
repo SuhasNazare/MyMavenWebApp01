@@ -8,10 +8,7 @@
   <name>MymavenWebApp01 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  
   <dependencies>
-  
-  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -19,28 +16,34 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Servlet API for Java EE -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-    
-    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   
-  
   <build>
-  <plugins>
-  <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.4.0</version> <!-- Update to latest stable version -->
-</plugin>
-</plugins>
     <finalName>MymavenWebApp01</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.4.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.44.v20210927</version>
+        <configuration>
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <webApp>
+            <contextPath>/</contextPath>
+          </webApp>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
-  
-  
 </project>
