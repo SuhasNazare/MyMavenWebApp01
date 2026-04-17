@@ -29,7 +29,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // -Djetty.http.port=8082 tells Jetty to stay out of Jenkins' way
-                sh 'sh 'mvn jetty:start -Djetty.http.port=8082 && sleep 10 && mvn jetty:stop -Djetty.stopPort=8083 -Djetty.stopKey=STOP''
+                sh 'sh 'sh 'nohup mvn jetty:run -Djetty.http.port=8082 &''
             }
         }
 
