@@ -28,8 +28,8 @@ pipeline {
        
         stage('Run Application') {
             steps {
-                // Start the JAR application
-                sh 'java -jar target/MymavenWebApp01.war'
+                // Change from 'java -jar ...' to this:
+                sh 'mvn jetty:run'
             }
         }
 
