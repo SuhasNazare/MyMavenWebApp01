@@ -28,8 +28,8 @@ pipeline {
        
         stage('Run Application') {
             steps {
-                // -Djetty.http.port=8082 tells Jetty to stay out of Jenkins' way
-                sh 'sh 'sh 'nohup mvn jetty:run -Djetty.http.port=8082 &'
+                // Just one 'sh' and one set of quotes!
+                sh 'nohup mvn jetty:run -Djetty.http.port=8082 &'
             }
         }
 
